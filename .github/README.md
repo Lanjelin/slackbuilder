@@ -10,7 +10,7 @@ Uses the following pre-defined paths, and things will be execured in listed orde
 - `/logs` - optional directory for logs.  
 
 Environment-variables can be passed to both `.sh`and `.SlackBuild`.  
-Set environment variable `LOGONLY=1` to suppress console output when running.  
+Set environment variable `VERBOSITY` to adjust the amount of information printed to the console output when running. Setting `VERBOSITY=0` will force everything to be printed to the log files, `VERBOSITY=1` will only print a minimum amount of information to the console and `VERBOSITY=2` will print everything to the console. The log files will always be populated irrespectively of the `VERBOSITY`. Not setting `VERBOSITY` is the same than `VERBOSITY=2`.
 
 #### Example docker run:
 ```bash
@@ -21,7 +21,7 @@ docker run --rm --name SlackBuilder\
   -v /mnt/user/data/slackpkg/pass/logs:/logs \
   -e OUTPUT=/output \
   -e TMP=/tmp \
-  -e LOGONLY=1 \
+  -e VERBOSITY=1 \
   ghcr.io/lanjelin/slackbuilder:latest
 ```
 
